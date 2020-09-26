@@ -1,0 +1,29 @@
+<div class="row justify-content-md-center">
+  <div class="col-6">
+    <div id="myDIV" class="header">
+      <h2>My To Do List </h2>
+
+      <input type="text" id="myInput" placeholder="Title..."  [formControl]="description" />
+      <button (click)="onSubmit()" class="addBtn">Add</button>
+    </div>
+    <hr>
+    <p> {{description.value}} </p>
+
+    <ul id="myUL">
+      <div class="container">
+      <div class="row" *ngFor="let todo of todos">
+        <div class="col">
+          <li [ngClass]="{ checked: !todo.isComplete }"  (click)="isComplete(todo)" >
+            {{ todo.description  }}  
+          </li> 
+
+        </div>
+        <button (click)="deleteTodo(todo)" type="button" class="btn btn-warning"><i class="fa fa-times"></i></button> 
+      </div>
+
+    </div>
+
+
+    </ul>
+  </div>
+</div>
